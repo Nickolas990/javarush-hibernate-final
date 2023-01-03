@@ -2,6 +2,9 @@ package org.javarush.echo.melnikovnikolay.hibernateutil;
 
 
 import org.hibernate.cfg.Configuration;
+import org.javarush.echo.melnikovnikolay.domain.City;
+import org.javarush.echo.melnikovnikolay.domain.Country;
+import org.javarush.echo.melnikovnikolay.domain.CountryLanguage;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -11,6 +14,9 @@ public class HibernateMySQLUtil extends HibernateUtil {
         initialiseProps();
         sessionFactory = new Configuration()
                 .setProperties(properties)
+                .addAnnotatedClass(City.class)
+                .addAnnotatedClass(Country.class)
+                .addAnnotatedClass(CountryLanguage.class)
                 .buildSessionFactory();
     }
 
